@@ -15,12 +15,13 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  email String
+  email String @unique
   hash String 
 
   firstName String?
   lastName String?
 
+  @@map("Users")
 }
 
 model BookMark {
@@ -31,4 +32,6 @@ model BookMark {
   title String
   description String?
   link String
+
+  @@map("BookMarks")
 }
