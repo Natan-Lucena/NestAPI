@@ -21,7 +21,8 @@ model User {
   firstName String?
   lastName String?
 
-  @@map("Users")
+  @@map("users")
+  bookMarks BookMark[]
 }
 
 model BookMark {
@@ -33,5 +34,8 @@ model BookMark {
   description String?
   link String
 
-  @@map("BookMarks")
+  userId Int 
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("bookMarks")
 }
